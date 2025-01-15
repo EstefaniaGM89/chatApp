@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Aplicació de missatges</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="./styles/index.css"> <!-- Estils de la pàgina -->
+</head>
+<body>
+  <main class="container">
+    <h1>Aplicació de missatges</h1>
+    <div class="grid">
+      
+      <section>
+        <form role="search"> <!-- Formulari per buscar missatges -->
+          <input id="input_search" name="search" type="search" placeholder="Buscar paraula clau" />
+          <input type="button" value="Buscar" data-target="modal" onclick="searchMessages(event)" />
+        </form>
+        
+        <hr> <!-- Separador -->
+        
+        <h5>Filtrar els missatges del xat per usuari</h5>
+        <section class="action_buttons"> <!-- Botons per filtrar missatges per usuari -->
+          <!--
+          <div class="outline user-filter" data-user="Joan" role="button">Mostra missatges de Joan</div>
+          <div class="outline user-filter" data-user="Maria" role="button">Mostra missatges de Maria</div>
+          -->
+        </section>
+        <hr> <!-- Separador -->
+        <div id="showAllMessages" class="secondary" role="button">Eliminar el filtre i mostra tots els missatges</div>
+      </section>
+
+      <section>
+        
+        <form> <!-- Formulari per enviar missatges -->
+          <fieldset role="group">
+            <input class="input_text_medium" name="user" type="text" placeholder="Usuari" />
+            <input name="message" type="text" placeholder="Escriu el missatge aqui ..." />
+            <input type="button" value="Enviar" onclick="addMessage(event)" />
+          </fieldset>
+          <div class="secondary" role="button" tabindex="0">Eliminar tots els missatges</div>
+        </form>
+        
+        <hr> <!-- Separador -->
+        
+        <article class="out"> <!-- Xat -->
+          <header>
+            <span>Xat</span>
+            <small> 
+              Número de missatges:
+              <span id="countMessages">0</span> <!-- Comptador de missatges -->
+            </small>
+          </header>
+          
+          <div id="output">
+            <!-- Llista de missatges d'exemple -->
+            <p class="message_box">
+              <span class="user">Joan:</span>
+              <span class="message">Hola a tothom!</span>
+              <span class="date"><small>(12/09/2024 14:30)</small></span>
+            </p>
+            <p class="message_box">
+              <span class="user">Maria:</span>
+              <span class="message">Bon dia!</span>
+              <span class="date"><small>(12/09/2024 14:31)</small></span>
+            </p>
+          </div>
+        </article>
+      </section>
+    </div>
+    
+    <dialog id="modal"> <!-- Modal per mostrar els resultats de la búsqueda -->
+      <article>
+        <header>
+          <button aria-label="Close" rel="prev" data-target="modal" onclick="toggleModal(event)"></button>
+          <p>Resultats de la búsqueda</p>
+        </header>
+        <ul id="searchResults">
+          <li>No hi ha resultats</li>
+        </ul>
+        <footer>
+          <button data-target="modal" onclick="toggleModal(event)">Ok</button>
+        </footer>
+      </article>
+    </dialog>
+
+  </main>
+  <script src="./scripts/modal.js"></script> <!-- Script per controlar el modal -->
+  <script src="./scripts/index.js"></script> <!-- Script per controlar la lògica de la pàgina -->
+</body>
+</html>

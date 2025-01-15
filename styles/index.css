@@ -1,0 +1,36 @@
+input.input_text_medium {
+	width: 50%;
+}
+
+#output {
+	font-size: smaller;
+}
+
+article.out header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+section .action_buttons div {
+	margin-bottom: 10px;
+}
+
+.message_box {
+	margin: 10px 0;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.message_box span {
+	margin-right: 10px;
+}
+
+.message_box span.user {
+	font-weight: bold;
+}
+
+.message_box span.date {
+	float: right;
+}
